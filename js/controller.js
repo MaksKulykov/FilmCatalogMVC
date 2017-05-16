@@ -5,8 +5,8 @@
     
     function bindSearch() {
         view.eventHolder.on( view.searchEventName, (event, item) => {
-            model.searchData(item).then((data) => {
-                initGallery(data);
+            model.searchFilms(item).then((newFilms) => {
+                initGallery(newFilms);
                 bindEvents();
             });
         })
@@ -16,13 +16,13 @@
         bindSearch();
     }
     
-    function initGallery(data){
-        view.init(data);
+    function initGallery(films){
+        view.init(films);
     }
 
     function init() {
-        model.getData().then((data) => {
-            initGallery(data);
+        model.getFilms().then((films) => {
+            initGallery(films);
             bindEvents();
         });
     }

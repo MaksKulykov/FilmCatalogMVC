@@ -5,7 +5,7 @@
 
         let DOMElements = {
             result : document.querySelector("#result"),
-            form : document.querySelector("#form")
+            form : document.querySelector("#form"),
         };
         let eventHolder = $({});
         let searchEventName = "search";
@@ -20,11 +20,12 @@
         }
 
         function searchElement(element) {
-            return element.getElementsByTagName("input")[0].value;
+            let film = element.getElementsByTagName("input")[0];
+            return film.value;
         }
 
-        function buildList(data) {
-            let res = data.Search.reduce(function (sum, item){
+        function buildList(films) {
+            let res = films.Search.reduce(function (sum, item){
                 return sum + `<div class="col-xs-6" >\
         <img src="${item.Poster}" class="img-thumbnail">\
             <div class="info-wrapper">\
@@ -41,8 +42,8 @@
             eventHolder : eventHolder,
             searchEventName : searchEventName,
 
-            init : function(data){
-                buildList(data);
+            init : function(films){
+                buildList(films);
                 initListener();
             }
         }

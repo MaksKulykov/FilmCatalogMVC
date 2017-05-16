@@ -6,20 +6,20 @@
         let url = "http://www.omdbapi.com/?page=1&s=";
         let filmName = "Matrix";
 
-        function getData() {
-            return $.get( url + filmName, function( data ) {
+        function getFilms() {
+            return $.get( url + filmName, function( films ) {
                 console.log("Initial data is loaded");
             })
         }
         
-        function searchData(item) {
+        function searchFilms(item) {
             filmName = item;
-            return getData();
+            return getFilms();
         }
         
         return {
-            getData : getData,
-            searchData: searchData,
+            getFilms : getFilms,
+            searchFilms: searchFilms,
         }
     };
     
