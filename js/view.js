@@ -5,8 +5,7 @@
 
         let DOMElements = {
             result : document.querySelector("#result"),
-            form : document.querySelector("#form"),
-            input : document.getElementsByTagName("input")
+            form : document.querySelector("#form")
         };
         let eventHolder = $({});
         let searchEventName = "search";
@@ -25,7 +24,6 @@
         }
 
         function buildList(data) {
-            console.log(data);
             let res = data.Search.reduce(function (sum, item){
                 return sum + `<div class="col-xs-6" >\
         <img src="${item.Poster}" class="img-thumbnail">\
